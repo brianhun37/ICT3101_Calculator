@@ -1,11 +1,11 @@
 ﻿    public class Calculator
 {
     public Calculator() { }
-    public double DoOperation(double num1, double num2, string op)
+    public double DoOperation(double num1, double num2, string operation)
     {
         double result = double.NaN; // Default value
                                     // Use a switch statement to do the math.
-        switch (op)
+        switch (operation)
         {
             case "a":
                 result = Add(num1, num2);
