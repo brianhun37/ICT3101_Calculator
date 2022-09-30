@@ -3,11 +3,13 @@ namespace ICT3101_Calculator.UnitTests
     public class CalculatorTests
     {
         private Calculator _calculator;
+        IFileReader fileReader;
         [SetUp]
         public void Setup()
         {
             // Arrange
             _calculator = new Calculator();
+            fileReader = new FileReader();
         }
         
         [TestCase(10, 20, ExpectedResult = 30)]
@@ -151,6 +153,34 @@ namespace ICT3101_Calculator.UnitTests
         public void UnknownFunctionB_WhenGivenTest3To4_ResultThrowArgumnetException(double num1, double num2)
         {
             Assert.Throws<ArgumentException>(() => _calculator.unknownFunctionB(num1, num2));
+        }
+        [Test]
+        [TestCase(-3)]
+        public void GenMagicNum_WhenGivenNegativeValue_ResultsEquals0(double input)
+        {
+
+            Assert.That(() => _calculator.GenMagicNum(input, fileReader), Is.EqualTo(0));
+        }
+
+        [Test]
+        [TestCase(0)]
+        public void GenMagicNum_WhenGivenIndex0_ResultsEquals10(double input)
+        {
+            Assert.That(() => _calculator.GenMagicNum(input, fileReader), Is.EqualTo(10));
+        }
+
+        [Test]
+        [TestCase(1)]
+        public void GenMagicNum_WhenGivenIndex1_ResultsEquals0(double input)
+        {
+            Assert.That(() => _calculator.GenMagicNum(input, fileReader), Is.EqualTo(0));
+        }
+
+        [Test]
+        [TestCase(2)]
+        public void GenMagicNum_WhenGivenIndex2_ResultsEqualNeg2(double input)
+        {
+            Assert.That(() => _calculator.GenMagicNum(input, fileReader), Is.EqualTo(2));
         }
     }
 }
