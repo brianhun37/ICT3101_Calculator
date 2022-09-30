@@ -54,19 +54,19 @@ namespace ICT3101_Calculator.UnitTests
             return _calculator.Divide(num1, num2);
         }
 
-        [TestCase(10, 0)]
-        [TestCase(-10, 0)]
-        [TestCase(0, 0)]
-        public void Divide_WithZerosAsInputs_ResultThrowArgumentException(int num1, int num2)
-        {
-            Assert.Throws<ArgumentException>(() => _calculator.Divide(num1, num2));
-        }
+        //[TestCase(10, 0)]
+        //[TestCase(-10, 0)]
+        //[TestCase(0, 0)]
+        //public void Divide_WithZerosAsInputs_ResultThrowArgumentException(int num1, int num2)
+        //{
+        //    Assert.Throws<ArgumentException>(() => _calculator.Divide(num1, num2));
+        //}
 
-        [Test]
-        public void Divide_WithZerosAsInputs_ResultThrowArgumentException()
-        {
-            Assert.That(() => _calculator.Divide(0, 0), Throws.ArgumentException);
-        }
+        //[Test]
+        //public void Divide_WithZerosAsInputs_ResultThrowArgumentException()
+        //{
+        //    Assert.That(() => _calculator.Divide(0, 0), Throws.ArgumentException);
+        //}
 
         [TestCase(0, ExpectedResult = 1)]
         [TestCase(1, ExpectedResult = 1)]
